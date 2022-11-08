@@ -1,0 +1,42 @@
+org: ranahiren
+app: backend
+service: aws-node-http-api-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+
+plugins:
+  - serverless-offline
+
+functions:
+  createUser:
+    timeout: 100 # optional, in seconds, default is 6
+    handler: users/handler.createUser
+    events:
+      - httpApi:
+          path: /user
+          method: post
+  getUsers:
+    timeout: 100 # optional, in seconds, default is 6
+    handler: users/handler.getUsers
+    events:
+      - httpApi:
+          path: /user
+          method: get
+  updateUser:
+    timeout: 100 # optional, in seconds, default is 6
+    handler: users/handler.updateUser
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: put
+  deleteUser:
+    timeout: 100 # optional, in seconds, default is 6
+    handler: users/handler.deleteUser
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: delete

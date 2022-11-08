@@ -1,0 +1,14 @@
+.user-page{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    form{
+        margin:5% 5%;
+    }
+    table{
+        width: 80%;
+        margin: 5% 10%;
+        border: 1px black solid;
+    }
+}
